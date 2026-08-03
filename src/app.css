@@ -1,7 +1,9 @@
-body {
-    height: 100vh;
-    margin: 0;
-    display: grid;
-    place-items: center;
-    text-align: center;
+:root {
+    color-scheme: light dark;
+    font-family: system-ui, sans-serif;
+}
+
+h1,
+h2 {
+    font-weight: normal;
 }

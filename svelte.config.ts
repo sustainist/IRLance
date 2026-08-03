@@ -184,11 +184,11 @@ export default {
                                     // const title = splits[0].trim()
                                     // const tagline = splits.length > 1 ? (`<small>${value.match(regex)?.[0] || ''}</small><small>` + splits[1].trim() + '</small>') : '';
                                     // header += `<h1 id="${id}" style="font-size:clamp(0.83rem,4vw,2rem);text-align:center;font-weight:normal;text-transform:uppercase"><a style="color:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:0.5ch" href="/">${value}</a></h1>`
-                                    header += `<h1 id="${id}" style="font-weight:normal;text-transform:uppercase"><a style="color:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:0.5ch" href="/#${id}">${value}</a></h1>`
+                                    header += `<h1 id="${id}" style="font-weight:bold;text-transform:uppercase"><a style="color:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:0.5ch" href="/#${id}">${value}</a></h1>`
                                 } else if (values[0] === 'subtitle') {
                                     const value = values[1].trim()
                                     const id = makeId(value);
-                                    header += `<h2 id="${id}" style="font-size:clamp(0.67rem,3vw,1.5rem);text-align:center;font-weight:normal"><a style="color:inherit;text-decoration:none" href="/#${id}">${value}</a></h2>`
+                                    header += `<h2 id="${id}" style="font-weight:bold;font-size:clamp(0.67rem,3vw,1.5rem);text-align:center"><a style="color:inherit;text-decoration:none" href="/#${id}">${value}</a></h2>`
                                 }
                             });
 

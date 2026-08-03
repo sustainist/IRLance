@@ -19,6 +19,7 @@
   const i: Map<ImportPath, Promise<{ default: Component<any> }>> = new Map();
 
   i.set("./Toc.svelte", import("./Toc.svelte"));
+  i.set("./LastUpdated.svelte", import("./ManifestLastUpdated.svelte"));
 </script>
 
 {#if i.has(p)}
