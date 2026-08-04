@@ -1,0 +1,1 @@
+:root{--lightningcss-light:initial;--lightningcss-dark: ;color-scheme:light dark;font-family:system-ui,sans-serif;font-size:16px}@media (prefers-color-scheme:dark){:root{--lightningcss-light: ;--lightningcss-dark:initial}}body{margin:8px}h1,h2{font-weight:400}
