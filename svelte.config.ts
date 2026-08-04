@@ -208,13 +208,13 @@ export default {
                             });
                         }
 
-                        const tocMarkup = `<I p="./Toc.svelte" list='${JSON.stringify(buildToc).replace(/{/g, "&#123").replace(/}/g, "&#125")}' />`;
+                        const tocMarkup = buildToc.length ? `<div class="container-toc"><I p="./Toc.svelte" list='${JSON.stringify(buildToc).replace(/{/g, "&#123").replace(/}/g, "&#125")}' /></div>` : '';
                         tree.children!.splice((nodeScript ? tree.children!.indexOf(nodeScript) : nodeYaml ? tree.children!.indexOf(nodeYaml) : -1) + 1, 0, {
                             type: "html",
                             value: `<div class="container-toc-and-content">`,
                         }, {
                             type: "html",
-                            value: `<div class="container-toc">${tocMarkup}</div><div class="container-content">`,
+                            value: `${tocMarkup}<div class="container-content">`,
                         });
 
                         tree.children!.push({
