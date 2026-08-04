@@ -38,7 +38,7 @@
     </div>
   </nav>
 {:else}
-  <p><small style:color="red">Toc list is empty</small></p>
+  <p><small style:color="red">Headings not found</small></p>
 {/if}
 
 <style>
@@ -46,12 +46,13 @@
     .container-toc-and-content {
       display: grid;
       grid-template-columns: minmax(0, 400px) minmax(0, 1200px);
-      gap: 1.25rem;
-      margin: 2.5rem 0 3rem;
+      gap: 8px;
 
       nav.toc {
         position: sticky;
         top: 0;
+        overflow: auto;
+        max-height: 100vh;
       }
     }
 
@@ -61,6 +62,7 @@
 
         nav.toc {
           position: initial;
+          max-height: initial;
         }
       }
     }
@@ -118,6 +120,7 @@
   }
 
   nav.toc {
+
     .title {
       font-variant: all-small-caps;
       font-weight: bold;
@@ -127,7 +130,7 @@
       list-style: none;
       padding-left: 0;
       margin-left: 0;
-      line-height: 1.25;
+      line-height: 1.5;
 
       li {
         li {

@@ -151,9 +151,9 @@ export default {
                                 // }
                             } else if (node.type === "html") {
 
-                                if (/<.*Toc.svelte/.test(node.value!)) {
+                                /* if (/<.*Toc.svelte/.test(node.value!)) {
                                     nodeToc = node;
-                                }
+                                } */
 
                                 if (/<script>/.test(node.value!)) {
                                     nodeScript = node;
@@ -169,54 +169,25 @@ export default {
 
                         walk(tree, {});
 
+                        let header = "";
+
                         if (nodeYaml) {
 
-                            let header = "";
-
                             nodeYaml.value!.split("\n").forEach((line) => {
-                                const values = line.split(": ");
-                                if (values[0] === 'title') {
-                                    const value = values[1].trim()
+                                const [yamlKey, yamlValue] = line.split(/:(.*)/);
+                                if (yamlKey === 'title') {
+                                    const value = yamlValue.trim();
                                     const id = makeId(value);
 
-                                    // const regex = /[-|]/;
-                                    // const splits = value.split(regex)
-                                    // const title = splits[0].trim()
-                                    // const tagline = splits.length > 1 ? (`<small>${value.match(regex)?.[0] || ''}</small><small>` + splits[1].trim() + '</small>') : '';
-                                    // header += `<h1 id="${id}" style="font-size:clamp(0.83rem,4vw,2rem);text-align:center;font-weight:normal;text-transform:uppercase"><a style="color:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:0.5ch" href="/">${value}</a></h1>`
-                                    header += `<h1 id="${id}" style="font-weight:bold;text-transform:uppercase"><a style="color:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:0.5ch" href="/#${id}">${value}</a></h1>`
-                                } else if (values[0] === 'subtitle') {
-                                    const value = values[1].trim()
+                                    header += `<h1 id="${id}" style="font-weight:bold"><a style="color:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:0.5ch" href="/#${id}">${value}</a></h1>`
+                                } else if (yamlKey === 'subtitle') {
+                                    const value = yamlValue.trim();
                                     const id = makeId(value);
                                     header += `<h2 id="${id}" style="font-weight:bold;font-size:clamp(0.67rem,3vw,1.5rem);text-align:center"><a style="color:inherit;text-decoration:none" href="/#${id}">${value}</a></h2>`
                                 }
                             });
 
-                            if (header) {
-                                tree.children!.splice(tree.children!.indexOf(nodeYaml) + 1, 0,
-                                    {
-                                        type: "html",
-                                        value: `<header style="text-align:center">${header}<I p="./LastUpdated.svelte" /></header>`
-                                    })
-                            }
-                        }
 
-                        if (nodeToc) {
-                            const tocIndex = tree.children!.indexOf(nodeToc);
-                            const tocMarkup = nodeToc.value!.replace(/(\/>)/, ` list='${JSON.stringify(buildToc).replace(/{/g, "&#123").replace(/}/g, "&#125")}'$1`);
-
-                            tree.children!.splice(tocIndex, 1, {
-                                type: "html",
-                                value: `<div class="container-toc-and-content">`,
-                            }, {
-                                type: "html",
-                                value: `<div class="container-toc">${tocMarkup}</div><div class="container-content">`,
-                            });
-
-                            tree.children!.push({
-                                type: "html",
-                                value: `</div></div>`,
-                            });
                         }
 
                         if (nodeScript) {
@@ -231,10 +202,32 @@ export default {
 
 
                         } else {
-                            tree.children!.splice(0, 0, {
+                            tree.children!.splice(nodeYaml ? tree.children!.indexOf(nodeYaml) + 1 : 0, 0, {
                                 type: "html",
                                 value: `<script>\nimport I from './DynamicComponent.svelte';\n</script>`,
                             });
+                        }
+
+                        const tocMarkup = `<I p="./Toc.svelte" list='${JSON.stringify(buildToc).replace(/{/g, "&#123").replace(/}/g, "&#125")}' />`;
+                        tree.children!.splice((nodeScript ? tree.children!.indexOf(nodeScript) : nodeYaml ? tree.children!.indexOf(nodeYaml) : -1) + 1, 0, {
+                            type: "html",
+                            value: `<div class="container-toc-and-content">`,
+                        }, {
+                            type: "html",
+                            value: `<div class="container-toc">${tocMarkup}</div><div class="container-content">`,
+                        });
+
+                        tree.children!.push({
+                            type: "html",
+                            value: `</div></div>`,
+                        });
+
+                        if (nodeYaml && header) {
+                            tree.children!.splice(tree.children!.indexOf(nodeYaml) + 1, 0,
+                                {
+                                    type: "html",
+                                    value: `<header style="text-align:center">${header}<I p="./LastUpdated.svelte" /></header>`
+                                })
                         }
 
                         nodeYaml = null;
