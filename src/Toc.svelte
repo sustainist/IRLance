@@ -27,18 +27,16 @@
 
 {#if list}
   {@const toc: Heading[] = JSON.parse(list || "[]")}
-  <nav class="toc">
-    <div class="inner">
-      <h1 class="title">Table of Contents</h1>
-      {#if toc.length}
+  {#if toc.length}
+    <nav class="toc">
+      <div class="inner">
+        <h1 class="title">Table of Contents</h1>
         {@render level(toc)}
-      {:else}
-        <p><small style:color="red">No headings found</small></p>
-      {/if}
-    </div>
-  </nav>
+      </div>
+    </nav>
+  {/if}
 {:else}
-  <p><small style:color="red">Headings not found</small></p>
+  <p><small style:color="red">List not found</small></p>
 {/if}
 
 <style>
@@ -120,7 +118,6 @@
   }
 
   nav.toc {
-
     .title {
       font-variant: all-small-caps;
       font-weight: bold;
