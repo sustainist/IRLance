@@ -45,8 +45,10 @@
   :global {
     .container-toc-and-content {
       display: grid;
-      grid-template-columns: minmax(0, 400px) minmax(0, 1200px);
+      grid-template-columns: auto minmax(0, 800px);
       gap: 8px;
+      max-width: 1200px;
+      margin: 0 auto;
 
       nav.toc {
         position: sticky;
@@ -59,6 +61,7 @@
     @media (max-width: 1200px) {
       .container-toc-and-content {
         grid-template-columns: 1fr;
+        max-width: 800px;
 
         nav.toc {
           position: initial;
@@ -120,7 +123,6 @@
   }
 
   nav.toc {
-
     .title {
       font-variant: all-small-caps;
       font-weight: bold;
