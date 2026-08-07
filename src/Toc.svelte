@@ -46,7 +46,7 @@
     .container-toc-and-content {
       display: grid;
       grid-template-columns: auto minmax(0, 800px);
-      gap: 8px;
+      gap: 12px;
       max-width: 1200px;
       margin: 0 auto;
 

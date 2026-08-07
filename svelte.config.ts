@@ -179,11 +179,11 @@ export default {
                                     const value = yamlValue.trim();
                                     const id = makeId(value);
 
-                                    header += `<h1 id="${id}" style="font-weight:bold"><a style="color:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:0.5ch" href="/#${id}">${value}</a></h1>`
+                                    header += `<h1 id="${id}" style="font-weight:bold"><a style="color:inherit;text-decoration:none;display:inline-flex;align-items:center;gap:0.5ch" href="/">${value}</a></h1>`
                                 } else if (yamlKey === 'subtitle') {
                                     const value = yamlValue.trim();
                                     const id = makeId(value);
-                                    header += `<h2 id="${id}" style="font-weight:bold;font-size:clamp(0.67rem,3vw,1.5rem);text-align:center"><a style="color:inherit;text-decoration:none" href="/#${id}">${value}</a></h2>`
+                                    header += `<h2 id="${id}" style="font-weight:bold;font-size:clamp(0.67rem,3vw,1.5rem);text-align:center"><a style="color:inherit;text-decoration:none" href="/">${value}</a></h2>`
                                 }
                             });
 
