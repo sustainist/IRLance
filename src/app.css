@@ -16,16 +16,10 @@ h2 {
 
 pre.language-manifest {
     font-size: 0.95rem;
-
-    border-left:2px solid rgba(128, 128, 128, 0.5);
+    border-left: 2px solid rgba(128, 128, 128, 0.5);
     padding-left: 12px;
-
+    white-space: normal;
     /* &:before {
         content: "❯ ";
     } */
-
-    code {
-        white-space: pre-wrap;
-        word-break: break-word;
-    }
 }
