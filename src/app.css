@@ -1,7 +1,8 @@
 :root {
     color-scheme: light dark;
     font-family: system-ui, sans-serif;
-    font-size: 16px;
+    font-size: 18px;
+    line-height: 1.5;
 }
 
 body {
@@ -16,9 +17,12 @@ h2 {
 pre.language-manifest {
     font-size: 0.95rem;
 
-    &:before {
+    border-left:2px solid rgba(128, 128, 128, 0.5);
+    padding-left: 12px;
+
+    /* &:before {
         content: "❯ ";
-    }
+    } */
 
     code {
         white-space: pre-wrap;
