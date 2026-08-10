@@ -1,3 +1,3 @@
-# IRLance (IRL + guidANCE) - In Real Life Guidance
+# IRLance - In Real Life Guidance
 
-This repository is the source code for [IRLance.com](https://irlance.com)
+This repository is the source code for [IRLance.com](https://irlance.com) (IRL + guidANCE)
