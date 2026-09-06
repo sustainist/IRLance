@@ -24,12 +24,13 @@ Think of it as:
 | **Assistance** | Offering hands-on help. |
 | **Attendance** | Physically showing up. |
 | **Governance** | Shared decision-making. |
+| **Finance** | Generating the resources to sustain the mission. |
 | **Abundance** | Believing there is enough for all. |
 | **Endurance** | Weathering storms as a group. |
 | **Alliance** | Standing together in mutual support. |
 | **Vigilance** | Protecting what matters. |
 
-> *IRLance ≈ IRL + guidance | advance | ascendance | performance | chance | assistance | attendance | governance | abundance | endurance | alliance | vigilance*
+> *IRLance ≈ IRL + guidance | advance | ascendance | performance | chance | assistance | attendance | governance | finance | abundance | endurance | alliance | vigilance*
 
 ## About This Repository
 
