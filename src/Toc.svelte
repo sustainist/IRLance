@@ -50,6 +50,10 @@
       max-width: 1200px;
       margin: 0 auto;
 
+      &:has(>:only-child){
+        max-width: 800px;
+      }
+
       nav.toc {
         position: sticky;
         top: 0;
