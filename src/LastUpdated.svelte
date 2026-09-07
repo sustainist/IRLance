@@ -1,7 +1,7 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    const link = `https://github.com/sustainist/irlance/commits/main/src/Manifest.svx`;
-    const commit = `https://api.github.com/repos/sustainist/irlance/commits?path=src/Manifest.svx&page=1&per_page=1`;
+    const link = `https://github.com/sustainist/irlance/commits/main/src/Prompt.svx`;
+    const commit = `https://api.github.com/repos/sustainist/irlance/commits?path=src/Prompt.svx&page=1&per_page=1`;
 
     let date = $state("");
     let errMsg = $state("");
@@ -70,6 +70,6 @@
 
 <style>
     .last-updated {
-        font-size: larger;
+        font-size: clamp(0.67rem, 3vw, 1.2rem);
     }
 </style>

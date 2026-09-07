@@ -1,5 +1,5 @@
 <script>
-  import Manifest from "./Manifest.svx";
+  import Prompt from "./Prompt.svx";
 </script>
 
-<Manifest />
+<Prompt />

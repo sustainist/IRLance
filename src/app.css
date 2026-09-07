@@ -14,7 +14,7 @@ h2 {
     font-weight: normal;
 }
 
-pre.language-manifest {
+pre.language-prompt {
     font-size: 0.95rem;
     border-left: 2px solid rgba(128, 128, 128, 0.5);
     padding-left: 12px;
