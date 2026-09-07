@@ -1,5 +1,5 @@
 ---
-title: ✦ Genesis Prompt
+title: ✦ Collaborative Prompt
 showLastUpdated: true
 ---
 
