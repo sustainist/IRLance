@@ -96,7 +96,6 @@ export default {
                     const usedIds: Record<string, number> = {};
                     const buildToc: Heading[] = [];
                     let nodeToc: Tree | null = null;
-                    let showLastUpdated: boolean = false;
                     let nodeScript: Tree | null = null;
                     const containerIndexesToc: number[] = [];
 
@@ -170,7 +169,7 @@ export default {
 
                         walk(tree, {});
 
-                        let header = "";
+                        let headerContent = "";
 
                         if (nodeYaml) {
 
@@ -180,13 +179,13 @@ export default {
                                     const value = yamlValue.trim();
                                     const id = makeId(value);
 
-                                    header += `<h1 id="${id}" style="font-size:clamp(0.83rem,4vw,2rem);font-weight:bold;text-transform:uppercase"><a style="color:inherit;text-decoration:none" href="/">${value}</a></h1>`
+                                    headerContent += `<h1 id="${id}" style="font-size:clamp(0.83rem,4vw,2rem);font-weight:bold;text-transform:uppercase"><a style="color:inherit;text-decoration:none" href="/">${value}</a></h1>`
                                 } else if (yamlKey === 'subtitle') {
                                     const value = yamlValue.trim();
                                     const id = makeId(value);
-                                    header += `<h2 id="${id}" style="font-size:clamp(0.67rem,3vw,1.5rem);font-weight:bold"><a style="color:inherit;text-decoration:none" href="/">${value}</a></h2>`
+                                    headerContent += `<h2 id="${id}" style="font-size:clamp(0.67rem,3vw,1.5rem);font-weight:bold"><a style="color:inherit;text-decoration:none" href="/">${value}</a></h2>`
                                 } else if (yamlKey === 'showLastUpdated') {
-                                    showLastUpdated = yamlValue.trim() === 'true';
+                                    headerContent += `<I p="./LastUpdated.svelte" />`;
                                 }
                             });
 
@@ -225,11 +224,11 @@ export default {
                             value: `</div></div>`,
                         });
 
-                        if (nodeYaml && header) {
+                        if (nodeYaml) {
                             tree.children!.splice(tree.children!.indexOf(nodeYaml) + 1, 0,
                                 {
                                     type: "html",
-                                    value: `<header class="header-svx" style="text-align:center">${header}` + (showLastUpdated ? `<I p="./LastUpdated.svelte" />` : '') + `</header>`
+                                    value: `<header class="header-svx" style="text-align:center">${headerContent}</header>`
                                 })
                         }
 
@@ -237,7 +236,6 @@ export default {
                         for (let key in usedIds) delete usedIds[key];
                         buildToc.length = 0;
                         nodeToc = null
-                        showLastUpdated = false;
                         nodeScript = null;
                         containerIndexesToc.length = 0;
 
