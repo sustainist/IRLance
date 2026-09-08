@@ -3,4 +3,4 @@ title: ✦ Collaborative Prompt
 showLastUpdated: true
 ---
 
-Prompting life is coming
+Prompting life is coming...
