@@ -1,6 +1,6 @@
 ---
 title: ✦ Prompt Economy
-subtitle: How AI Will Redirect Capital Toward Human Potential
+subtitle: Redirect Capital Toward Human Potential
 showLastUpdated: true
 ---
 
