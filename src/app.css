@@ -109,6 +109,7 @@ h2 {
             text-decoration: none;
             color: inherit;
             display: block;
+            border-bottom: 1px solid transparent;
 
             padding-left: calc(var(--indent) * 2ch);
 
@@ -117,11 +118,7 @@ h2 {
                 font-size: smaller;
             }
 
-            .label {
-                border-bottom: 1px solid transparent;
-            }
-
-            &:hover .label {
+            &:hover {
                 border-bottom-color: inherit;
             }
         }
@@ -134,9 +131,13 @@ h2 {
         grid-template-columns: 1fr;
         max-width: 800px;
 
-        .container-toc nav.toc {
-            position: initial;
-            max-height: initial;
+        .container-toc {
+            max-width: initial;
+
+            nav.toc {
+                position: initial;
+                max-height: initial;
+            }
         }
     }
 }
