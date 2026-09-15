@@ -25,11 +25,15 @@ h2 {
         max-width: 800px;
     }
 
-    nav.toc {
-        position: sticky;
-        top: 0;
-        overflow: auto;
-        max-height: 100vh;
+    .container-toc {
+        max-width: 400px;
+
+        nav.toc {
+            position: sticky;
+            top: 0;
+            overflow: auto;
+            max-height: 100vh;
+        }
     }
 }
 
@@ -46,6 +50,10 @@ h2 {
 
         .content {
             flex: 1;
+        }
+
+        .index {
+            font-size: smaller
         }
 
         .act {
@@ -86,52 +94,35 @@ h2 {
     }
 }
 
-.container-toc {
-    nav.toc {
-        .title {
-            font-variant: all-small-caps;
-            font-weight: bold;
-            font-size: x-large;
-        }
+.container-toc nav.toc {
 
-        .list {
-            list-style: none;
-            padding-left: 0;
-            margin-left: 0;
-            line-height: 1.5;
+    .title {
+        font-variant: all-small-caps;
+        font-size: x-large;
+    }
 
-            li {
-                li {
-                    font-size: 0.95em;
-                }
+    .list {
+        list-style: none;
+        padding-left: 0;
 
-                a {
-                    display: flex;
-                    text-decoration: none;
-                    color: inherit;
+        a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
 
-                    .index {
-                        min-width: 4.5rem;
-                    }
+            padding-left: calc(var(--indent) * 2ch);
 
-                    .label {
-                        margin-left: calc(var(--indent) * 1rem);
-                        flex: 1;
-                        border-bottom: 1px solid transparent;
-                    }
-
-                    &:hover .label {
-                        border-bottom-color: inherit;
-                    }
-                }
+            .index {
+                font-weight: bold;
+                font-size: smaller;
             }
 
-            .inner>&>li {
-                margin-top: 1em;
+            .label {
+                border-bottom: 1px solid transparent;
+            }
 
-                &>a {
-                    font-weight: bold;
-                }
+            &:hover .label {
+                border-bottom-color: inherit;
             }
         }
     }

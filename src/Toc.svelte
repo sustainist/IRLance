@@ -7,11 +7,11 @@
     <ol class="list">
       {#each items as { id, index, text, children = [] }, i (id || i)}
         {@const indent = (index?.length || 1) - 1}
-        <li style="--indent:{indent > 1 ? indent - 1 : 0}">
+        <li style="--indent:{indent}">
           {#if text && id}
             <a href="/#{id}">
               <span class="index">
-                {index?.join(".")}
+                {index?.join(".")}.
               </span>
               <span class="label">
                 {text}
@@ -29,7 +29,7 @@
   {@const toc: Heading[] = JSON.parse(list || "[]")}
   <nav class="toc">
     <div class="inner">
-      <h1 class="title">Table of Contents</h1>
+      <h1 class="title">Contents</h1>
       {#if toc.length}
         {@render level(toc)}
       {:else}
@@ -42,5 +42,4 @@
 {/if}
 
 <style>
-
 </style>
