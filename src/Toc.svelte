@@ -1,0 +1,46 @@
+<script lang="ts">
+  const { list }: { list?: string } = $props();
+</script>
+
+{#snippet level(items: Heading[])}
+  {#if items.length}
+    <ol class="list">
+      {#each items as { id, index, text, children = [] }, i (id || i)}
+        {@const indent = (index?.length || 1) - 1}
+        <li style="--indent:{indent > 1 ? indent - 1 : 0}">
+          {#if text && id}
+            <a href="/#{id}">
+              <span class="index">
+                {index?.join(".")}
+              </span>
+              <span class="label">
+                {text}
+              </span>
+            </a>
+          {/if}
+          {@render level(children)}
+        </li>
+      {/each}
+    </ol>
+  {/if}
+{/snippet}
+
+{#if list}
+  {@const toc: Heading[] = JSON.parse(list || "[]")}
+  <nav class="toc">
+    <div class="inner">
+      <h1 class="title">Table of Contents</h1>
+      {#if toc.length}
+        {@render level(toc)}
+      {:else}
+        <p><small style:color="red">Headings not found</small></p>
+      {/if}
+    </div>
+  </nav>
+{:else}
+  <p><small style:color="red">List not found</small></p>
+{/if}
+
+<style>
+
+</style>
