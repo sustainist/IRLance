@@ -16,7 +16,7 @@
     const windowWidth =
       window.innerWidth || document.documentElement.clientWidth;
 
-    const scrollTocTop = windowWidth > 1200 ? containerRect.top : 0;
+    const scrollTocTop = windowWidth <= 1200 ? 0 : containerRect.top;
     containerNav.style.setProperty("--scroll-toc-top", `${scrollTocTop}px`);
 
     return !(
