@@ -31,7 +31,7 @@
     }
 
     img {
-        border-radius: 0.5rem;
+        border-radius: 12px;
         display: block;
         aspect-ratio: auto;
         filter: blur(18px);
