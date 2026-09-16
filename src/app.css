@@ -55,7 +55,6 @@ h2 {
                     }
 
                     &:hover {
-                        /* border-bottom-color: inherit; */
                         text-decoration: underline;
                     }
                 }
