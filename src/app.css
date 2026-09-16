@@ -27,12 +27,12 @@ h2 {
 
     .container-toc {
         max-width: 400px;
-
-        nav.toc {
             position: sticky;
             top: 0;
             overflow: auto;
-            max-height: 100vh;
+            max-height: calc(100vh - var(--scroll-toc-top, 0px));
+
+        nav.toc {
         }
     }
 }
@@ -131,10 +131,10 @@ h2 {
 
         .container-toc {
             max-width: initial;
-
-            nav.toc {
                 position: initial;
                 max-height: initial;
+
+            nav.toc {
             }
         }
     }
