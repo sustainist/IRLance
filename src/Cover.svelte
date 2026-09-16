@@ -1,5 +1,16 @@
-<script>
-    let loaded = $state(false);
+<script lang="ts">
+    import { onMount } from "svelte";
+
+    let image: HTMLImageElement | undefined;
+    let loaded = $state(true);
+
+    onMount(() => {
+        const blurDelay = setTimeout(() => {
+            if (!image?.complete) loaded = false;
+        }, 120);
+
+        return () => clearTimeout(blurDelay);
+    });
 </script>
 
 <div class="cover">
@@ -7,6 +18,7 @@
         class:loaded
         src="/cover.png"
         alt="IRLance book cover"
+        bind:this={image}
         onload={() => (loaded = true)}
     />
 </div>
