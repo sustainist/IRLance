@@ -105,7 +105,7 @@ h2 {
             text-decoration: none;
             color: inherit;
             display: block;
-            padding-left: calc(var(--indent) * 2ch);
+            padding-left: calc(var(--indent) * 3ch);
 
             .index {
                 font-weight: bold;
