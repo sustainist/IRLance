@@ -67,10 +67,6 @@
         document
           .querySelector(".container-toc .title")
           ?.scrollIntoView({ block: "start" });
-        // const a = document.querySelector(
-        //   '[href="/#humatize-manifest"]',
-        // ) as HTMLAnchorElement | null;
-        // if (a) a.click();
       }}
     >
       <span class="symbol">&#x203A;</span>
