@@ -213,7 +213,7 @@ export default {
                         const tocMarkup = buildToc.length ? `<div class="container-toc"><I p="./Toc.svelte" list='${JSON.stringify(buildToc).replace(/{/g, "&#123").replace(/}/g, "&#125")}' /></div>` : '';
                         tree.children!.splice((nodeScript ? tree.children!.indexOf(nodeScript) : nodeYaml ? tree.children!.indexOf(nodeYaml) : -1) + 1, 0, {
                             type: "html",
-                            value: `<div class="container-toc-and-content">`,
+                            value: `<div class="container-svx">`,
                         }, {
                             type: "html",
                             value: `${tocMarkup}<div class="container-content">`,
