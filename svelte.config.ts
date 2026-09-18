@@ -140,12 +140,12 @@ export default {
                                     children: [],
                                 });
 
-                                textContent += `<span class="index">${indexCurrentToc.join(".")}.</span>`;
                                 textAct += `<a href="#${id}" class="section-link" title="Section link"></a>`;
+                                textContent += `<span class="index">${indexCurrentToc.join(".")}.</span>`;
 
                                 parent.children![parent.children!.indexOf(node)] = {
                                     type: "html",
-                                    value: `<h${node.depth} id="${id}"><span class="content">${textContent + allFromTransformer}</span><span class="act">${textAct}</span></h${node.depth}>`,
+                                    value: `<h${node.depth} id="${id}"><span class="act">${textAct}</span><span class="content">${textContent + allFromTransformer}</span></h${node.depth}>`,
                                 };
 
                                 // }
@@ -183,7 +183,7 @@ export default {
                                 } else if (yamlKey === 'subtitle') {
                                     const value = yamlValue.trim();
                                     const id = makeId(value);
-                                    headerContent += `<h2 id="${id}" style="font-size:clamp(0.67rem,3vw,1.5rem);font-weight:bold"><a style="color:inherit;text-decoration:none" href="/">${value}</a></h2>`
+                                    headerContent += `<h2 id="${id}" style="font-size:clamp(0.67rem,3vw,1.5rem);font-weight:bold"><a style="color:inherit;text-decoration:none" href="/"><small>❯…</small> ${value}</a></h2>`
                                 } else if (yamlKey === 'showLastUpdated') {
                                     headerContent += `<p class="last-updated" style="font-size: clamp(0.67rem, 3vw, 1.2rem)">Last updated: <I p="./LastUpdated.svelte" /></p>`;
                                 }

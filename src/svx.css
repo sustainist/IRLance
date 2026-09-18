@@ -59,12 +59,6 @@
         h4,
         h5,
         h6 {
-            display: flex;
-            align-items: center;
-
-            .content {
-                flex: 1;
-            }
 
             .index {
                 font-size: smaller;
@@ -75,23 +69,22 @@
             }
 
             .act {
-                gap: 0.5rem;
-                display: inline-flex;
-                flex-wrap: wrap;
+
+                &::after {
+                    content: " ";
+                }
 
                 .section-link {
-                    font-size: 1rem;
+                    font-size: smaller;
+                    font-family: inherit;
                     text-decoration: none;
-                    opacity: 0.75;
-                    transition: opacity 400ms;
+                    color: inherit;
 
                     &::before {
-                        content: "§";
+                        /* content: "§"; */
+                        content: "❯…\00a0";
                     }
 
-                    &:hover {
-                        opacity: 1;
-                    }
 
                     *:hover>.act & {
                         text-decoration: underline;
@@ -109,37 +102,24 @@
         h4,
         h5,
         h6 {
-            font-size: 1.25rem;
-            margin: 1.5rem 0 1rem;
+            font-size: 1.25em;
+            margin: 1.5em 0 1em;
             font-weight: normal;
-
-            &::before {
-                content: "❯…\00a0";
-                font-size: smaller;
-
-
-            }
         }
     }
 
-    .container-content :is(h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6),
+
     .container-toc a {
 
         font-family: monospace;
-        line-height: 1.25;
-    }
 
-    .container-toc a {
         &::before {
             content: "❯…\00a0";
             font-size: smaller;
+
         }
     }
+
 }
 
 @media (max-width: 1200px) {
