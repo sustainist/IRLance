@@ -31,11 +31,15 @@
                     text-decoration: none;
                     color: inherit;
                     display: block;
-                    padding-left: calc(var(--indent) * 3ch);
+                    /* padding-left: calc(var(--indent) * 3ch); */
 
                     .index {
                         font-weight: bold;
                         font-size: smaller;
+
+                        &::after {
+                            content: " ";
+                        }
                     }
 
                     &:hover {
@@ -63,7 +67,11 @@
             }
 
             .index {
-                font-size: smaller
+                font-size: smaller;
+
+                &::after {
+                    content: " ";
+                }
             }
 
             .act {
@@ -92,6 +100,46 @@
             }
         }
     }
+
+    .container-content {
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-size: 1.25rem;
+            margin: 1.5rem 0 1rem;
+            font-weight: normal;
+
+            &::before {
+                content: "❯…\00a0";
+                font-size: smaller;
+
+
+            }
+        }
+    }
+
+    .container-content :is(h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6),
+    .container-toc a {
+
+        font-family: monospace;
+        line-height: 1.25;
+    }
+
+    .container-toc a {
+        &::before {
+            content: "❯…\00a0";
+            font-size: smaller;
+        }
+    }
 }
 
 @media (max-width: 1200px) {
@@ -105,4 +153,8 @@
             max-height: initial;
         }
     }
+}
+
+.index {
+    display: none;
 }

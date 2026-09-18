@@ -10,12 +10,9 @@
         <li style="--indent:{indent}">
           {#if text && id}
             <a href="/#{id}">
-              <span class="index">
-                {index?.join(".")}.
-              </span>
-              <span class="label">
-                {text}
-              </span>
+              <span class="index">{index?.join(".")}.</span><span class="label"
+                >{text}</span
+              >
             </a>
           {/if}
           {@render level(children)}
@@ -29,7 +26,7 @@
   {@const toc: Heading[] = JSON.parse(list || "[]")}
   <nav class="toc">
     <div class="inner">
-      <h1 class="title">Contents</h1>
+      <h1 class="title">Prompts</h1>
       {#if toc.length}
         {@render level(toc)}
       {:else}
@@ -40,6 +37,3 @@
 {:else}
   <p><small style:color="red">List not found</small></p>
 {/if}
-
-<style>
-</style>

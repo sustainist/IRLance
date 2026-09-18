@@ -140,7 +140,7 @@ export default {
                                     children: [],
                                 });
 
-                                textContent += `<span class="index">${indexCurrentToc.join(".")}.</span> `;
+                                textContent += `<span class="index">${indexCurrentToc.join(".")}.</span>`;
                                 textAct += `<a href="#${id}" class="section-link" title="Section link"></a>`;
 
                                 parent.children![parent.children!.indexOf(node)] = {
